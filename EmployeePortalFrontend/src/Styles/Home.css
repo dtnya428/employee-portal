@@ -1,8 +1,7 @@
-
-.btn{
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    font-weight: 600 !important; 
-    font-size: 1.2em !important;
-    padding: .9em 1.5em !important;
-    margin-bottom: 1em  !important;
+.btn {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  font-weight: 600 !important;
+  font-size: 1.2em !important;
+  padding: 0.9em 1.5em !important;
+  margin-bottom: 1em !important;
 }

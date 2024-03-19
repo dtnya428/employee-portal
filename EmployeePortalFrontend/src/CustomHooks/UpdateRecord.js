@@ -15,7 +15,7 @@ export default function useUpdateRecord() {
     };
 
     const response = await fetch(router, requestOptions);
-    
+
     if (!response.ok) {
       setError(response.error);
     }

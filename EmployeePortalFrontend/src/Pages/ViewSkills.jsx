@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import  useGetData  from "../CustomHooks/GetData"
+import useGetData from "../CustomHooks/GetData";
 
 import {
   Button,
@@ -51,7 +51,9 @@ const Skills = () => {
         attributes: alertMessages.filter((item) => item?.name === "Success")[0]
           .attributes,
         icon: alertMessages.filter((item) => item?.name === "Success")[0].icon,
-        message:  response.api && `Successfully ${response.api}` || `Successfully Submitted`,
+        message:
+          (response.api && `Successfully ${response.api}`) ||
+          `Successfully Submitted`,
       });
 
       setShowMessage(true);
@@ -84,31 +86,34 @@ const Skills = () => {
 
   return (
     <Fragment>
-     {openSkillsFormAdd && <EmployeeFormAdd
-        headerText="Add New Skill"
-        close={() => setOpenSkillsFormAdd(false)}
-        open={openSkillsFormAdd}
-        submit={handleSubmission}
-      />
-     }
+      {openSkillsFormAdd && (
+        <EmployeeFormAdd
+          headerText="Add New Skill"
+          close={() => setOpenSkillsFormAdd(false)}
+          open={openSkillsFormAdd}
+          submit={handleSubmission}
+        />
+      )}
 
-     {openSkillsFormUpdate &&  <EmployeeFormUpdate
-        headerText="Update Skill"
-        close={() => setOpenSkillsFormUpdate(false)}
-        open={openSkillsFormUpdate}
-        record={record}
-        submit={handleSubmission}
-      />
-     }
+      {openSkillsFormUpdate && (
+        <EmployeeFormUpdate
+          headerText="Update Skill"
+          close={() => setOpenSkillsFormUpdate(false)}
+          open={openSkillsFormUpdate}
+          record={record}
+          submit={handleSubmission}
+        />
+      )}
 
-     {openDeleteSkill && <DeleteSkill
-        headerText="Delete Skill"
-        close={() => setOpenDeleteSkill(false)}
-        open={openDeleteSkill}
-        record={record}
-        submit={handleSubmission}
-      />
-     }
+      {openDeleteSkill && (
+        <DeleteSkill
+          headerText="Delete Skill"
+          close={() => setOpenDeleteSkill(false)}
+          open={openDeleteSkill}
+          record={record}
+          submit={handleSubmission}
+        />
+      )}
 
       <MainHeader header="Skills" />
       <Item className="search_btn_container">
@@ -133,57 +138,57 @@ const Skills = () => {
             textAlign: "left",
           }}
         >
-        <Item className="skills_items_container">
-          {responseData.map((item) => {
-            return (
-              <Item key={item.id}  className="skills_item" >
-                <ItemContent>{item.name}</ItemContent>
-                <ItemContent>{item.description}</ItemContent>
-                <ItemContent>
-                <Item>
-                  <Popup
-                    trigger={
-                      <Icon
-                        name="ellipsis vertical"
-                        size="large"
-                        style={{ cursor: "pointer" }}
+          <Item className="skills_items_container">
+            {responseData.map((item) => {
+              return (
+                <Item key={item.id} className="skills_item">
+                  <ItemContent>{item.name}</ItemContent>
+                  <ItemContent>{item.description}</ItemContent>
+                  <ItemContent>
+                    <Item>
+                      <Popup
+                        trigger={
+                          <Icon
+                            name="ellipsis vertical"
+                            size="large"
+                            style={{ cursor: "pointer" }}
+                          />
+                        }
+                        content={
+                          <Menu vertical icon="labeled" size="small">
+                            <Menu.Item
+                              content="Edit"
+                              onClick={() => {
+                                setOpenSkillsFormUpdate(true);
+                                setRecord({
+                                  id: item.id,
+                                  name: item.name,
+                                  description: item.description,
+                                });
+                                handleMenuClose();
+                              }}
+                            />
+                            <Menu.Item
+                              content="Delete"
+                              onClick={() => {
+                                setOpenDeleteSkill(true);
+                                setRecord((prev) => ({ ...prev, id: item.id }));
+                                handleMenuClose();
+                              }}
+                            />
+                          </Menu>
+                        }
+                        on="click"
+                        position="bottom right"
+                        open={openMenuId === item.id}
+                        onClose={() => handleMenuClose()}
+                        onOpen={() => setOpenMenuId(item.id)}
                       />
-                    }
-                    content={
-                      <Menu vertical icon="labeled" size="small">
-                        <Menu.Item
-                          content="Edit"
-                          onClick={() => {
-                          setOpenSkillsFormUpdate(true);
-                          setRecord({
-                            id: item.id,
-                            name: item.name,
-                            description: item.description,
-                          });
-                          handleMenuClose();
-                        }}
-                        />
-                        <Menu.Item
-                          content="Delete"
-                          onClick={() => {
-                            setOpenDeleteSkill(true);
-                            setRecord((prev) => ({ ...prev, id: item.id }));
-                            handleMenuClose();
-                          }}
-                        />
-                      </Menu>
-                    }
-                    on="click"
-                    position="bottom right"
-                    open={openMenuId === item.id}
-                    onClose={() => handleMenuClose()}
-                    onOpen={() => setOpenMenuId(item.id)}
-                  />
+                    </Item>
+                  </ItemContent>
                 </Item>
-              </ItemContent>
-            </Item>
-            );
-          })}
+              );
+            })}
           </Item>
         </Item>
       )}

@@ -26,5 +26,5 @@ export default function useDeleteRecord() {
     setIsPending(false);
   };
 
-    return { response, error, isPending, deleteRecord };
+  return { response, error, isPending, deleteRecord };
 }

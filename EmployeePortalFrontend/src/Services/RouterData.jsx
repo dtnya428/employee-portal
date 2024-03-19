@@ -19,7 +19,7 @@ const routerData = [
   {
     path: `/viewProfile`,
     element: <ViewEmployeeProfile />,
-  }
+  },
 ];
 
 export default routerData;

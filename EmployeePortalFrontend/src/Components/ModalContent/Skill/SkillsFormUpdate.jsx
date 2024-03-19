@@ -1,4 +1,4 @@
-import { Fragment, useEffect} from "react";
+import { Fragment, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useUpdateRecord from "../../../CustomHooks/UpdateRecord";
 
@@ -6,19 +6,18 @@ import { ModalHeader, Button, Modal, Form, FormField } from "semantic-ui-react";
 
 const EmployeeFormUpdate = (props) => {
   const { headerText, close, open, record, submit } = props;
-  const { response, error, isPending, updateRecord} =  useUpdateRecord();
+  const { response, error, isPending, updateRecord } = useUpdateRecord();
 
   useEffect(() => {
-    if(response || error) {
+    if (response || error) {
       submit(response, error);
       close();
     }
   }, [response]);
 
-
   useEffect(() => {
-    setValue('name', record.name);
-    setValue('description', record.description);
+    setValue("name", record.name);
+    setValue("description", record.description);
   }, [record]);
 
   const {
@@ -34,7 +33,7 @@ const EmployeeFormUpdate = (props) => {
   });
 
   const onSubmit = async (data) => {
-      await updateRecord(`skills/{${record.id}}`, data);
+    await updateRecord(`skills/{${record.id}}`, data);
   };
 
   return (

@@ -56,7 +56,9 @@ const ViewEmployees = () => {
         attributes: alertMessages.filter((item) => item?.name === "Success")[0]
           .attributes,
         icon: alertMessages.filter((item) => item?.name === "Success")[0].icon,
-        message:  response.api && `Successfully ${response.api}` || `Successfully Submitted`,
+        message:
+          (response.api && `Successfully ${response.api}`) ||
+          `Successfully Submitted`,
       });
 
       setShowMessage(true);
@@ -84,24 +86,25 @@ const ViewEmployees = () => {
   };
 
   return (
-  <Fragment>
-    {openAddEmployee &&
-      <EmployeeForm
-        headerText="Add New Employee"
-        close={() => setOpenAddEmployee(false)}
-        open={openAddEmployee}
-        submit={handleSubmission}
-      />
-      }
+    <Fragment>
+      {openAddEmployee && (
+        <EmployeeForm
+          headerText="Add New Employee"
+          close={() => setOpenAddEmployee(false)}
+          open={openAddEmployee}
+          submit={handleSubmission}
+        />
+      )}
 
-    {openDeleteEmployee && <DeleteEmployee
-        headerText="Delete Employee"
-        close={() => setOpenDeleteEmployee(false)}
-        open={openDeleteEmployee}
-        record={record}
-        submit={handleSubmission}
-      />
-     }
+      {openDeleteEmployee && (
+        <DeleteEmployee
+          headerText="Delete Employee"
+          close={() => setOpenDeleteEmployee(false)}
+          open={openDeleteEmployee}
+          record={record}
+          submit={handleSubmission}
+        />
+      )}
 
       <MainHeader header="Employees" />
 
@@ -124,7 +127,10 @@ const ViewEmployees = () => {
             return (
               <Item className="emp_item" key={item.id} fluid>
                 <Item className="emp_item_info">
-                <UserIcon firstName={item.firstName} lastName={item.lastName} />
+                  <UserIcon
+                    firstName={item.firstName}
+                    lastName={item.lastName}
+                  />
                   <ItemContent className="emp_item_info_content">
                     <Header as="h4">
                       {item.firstName} {item.middleName && item.middleName}{" "}
@@ -149,7 +155,9 @@ const ViewEmployees = () => {
                       <Menu vertical icon="labeled" size="small">
                         <Menu.Item
                           content="View Profile"
-                           onClick={() => navigate(`/viewProfile` , { state: { id: item.id } })}
+                          onClick={() =>
+                            navigate(`/viewProfile`, { state: { id: item.id } })
+                          }
                         />
                         <Menu.Item
                           content="Delete"

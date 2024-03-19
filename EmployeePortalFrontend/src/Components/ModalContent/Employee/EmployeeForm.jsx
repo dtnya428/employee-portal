@@ -9,7 +9,7 @@ const EmployeeForm = (props) => {
   const { response, error, isPending, postData } = usePostData();
 
   useEffect(() => {
-    if(response || error) {
+    if (response || error) {
       submit(response, error);
       close();
     }

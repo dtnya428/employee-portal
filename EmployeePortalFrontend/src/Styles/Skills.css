@@ -1,53 +1,53 @@
 .search_btn_container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    row-gap: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 8px;
 }
-.skills_items_container{
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    margin: 10px 0;
+.skills_items_container {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 10px 0;
 }
 .skills_item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    column-gap: 10px;
-    padding: 1.2em 1.2em;
-    border: 1px solid lightgray;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 10px;
+  padding: 1.2em 1.2em;
+  border: 1px solid lightgray;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .emp_item_info {
-    display:flex;
-    column-gap: 15px;
-    align-items: center;  
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
 }
 .emp_item_info_img {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 .emp_item_info_content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .back_to_home_btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
 }
 .ui.button {
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    font-weight: 600;
-    font-size: 1.1em;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  font-weight: 600;
+  font-size: 1.1em;
 }
 .ui.button.back {
-    border: 1px solid lightgray;
+  border: 1px solid lightgray;
 }

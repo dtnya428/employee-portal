@@ -15,7 +15,7 @@ const DeleteSkill = (props) => {
   const { headerText, close, open, record, submit } = props;
 
   useEffect(() => {
-    if(response || error) {
+    if (response || error) {
       submit(response, error);
       close();
     }
@@ -35,12 +35,13 @@ const DeleteSkill = (props) => {
       </ModalContent>
       <ModalActions>
         <Button onClick={close}>Cancel</Button>
-        <Button 
-            type="submit"  
-            loading={isPending && true}
-            disabled={isPending && true}
-            onClick={handleSubmission}
-            positive>
+        <Button
+          type="submit"
+          loading={isPending && true}
+          disabled={isPending && true}
+          onClick={handleSubmission}
+          positive
+        >
           Save
         </Button>
       </ModalActions>

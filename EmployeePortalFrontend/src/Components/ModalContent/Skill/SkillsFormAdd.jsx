@@ -9,12 +9,12 @@ const EmployeeFormAdd = (props) => {
   const { response, error, isPending, postData } = usePostData();
 
   useEffect(() => {
-    if(response || error) {
+    if (response || error) {
       submit(response, error);
       close();
     }
   }, [response]);
-  
+
   const {
     register,
     handleSubmit,
